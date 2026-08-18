@@ -30,4 +30,4 @@ ENV FLASK_APP=test:app
 ENV FLASK_ENV=development
 
 # Run the Flask application
-CMD ["python", "-m", "flask", "run", "--host=0.0.0.0"]
+CMD [ "flask", "--app", "test", "--debug", "run", "--host=0.0.0.0" ]

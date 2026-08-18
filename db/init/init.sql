@@ -1,0 +1,29 @@
+CREATE TABLE IF NOT EXISTS Textbook (
+    TextbookID SERIAL PRIMARY KEY,
+    TextbookName VARCHAR(255) NOT NULL,
+    TextbookFilePath VARCHAR(2048) NOT NULL,
+    TextbookState VARCHAR(20) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS Topic (
+    TopicID SERIAL PRIMARY KEY,
+    TextbookID SERIAL NOT NULL REFERENCES Textbook(TextbookID) ON DELETE CASCADE,
+    TopicDescription VARCHAR(255) NOT NULL,
+    TopicState VARCHAR(20) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS Problem (
+    ProblemID SERIAL PRIMARY KEY,
+    TextbookID SERIAL NOT NULL REFERENCES Textbook(TextbookID) ON DELETE CASCADE,
+    TopicID SERIAL NOT NULL REFERENCES Topic(TopicID) ON DELETE CASCADE,
+    ProblemNo INT NOT NULL,
+    ProblemQuestion TEXT,
+    ProblemSolution TEXT,
+    ProblemState VARCHAR(20) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS TextbookSettings (
+    TextbookSettingID SERIAL PRIMARY KEY,
+    TopicWindowSize VARCHAR(20) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS LessonPlan (
+    LessonPlanID SERIAL PRIMARY KEY,
+    TopicWindowSize VARCHAR(20) NOT NULL
+);

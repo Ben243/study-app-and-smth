@@ -1,7 +1,15 @@
 from flask import Flask, request, redirect, url_for, render_template
+import os
+import psycopg2
 import app_data
 
 app = Flask(__name__)
+DATABASE_URL = os.environ["DATABASE_URL"]
+
+conn = psycopg2.connect(DATABASE_URL)
+cur = conn.cursor()
+cur.close()
+conn.close()
 
 @app.route("/")
 def hello_world():
