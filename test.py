@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, url_for
+from flask import Flask, request, redirect, url_for, render_template
 import app_data
 
 app = Flask(__name__)
@@ -10,10 +10,7 @@ def hello_world():
     
 @app.route("/test")
 def test():
-    return """
-        <h1>This is a test page</h1>
-        <p>I hate how this works</p>
-    """
+    return render_template("index.html", app_data=app_data.data, make_req=url_for('test_req'))
 
 @app.route("/make_req", methods=['GET'])
 def test_req():
@@ -24,6 +21,8 @@ def test_req():
                 <p>{app_data.data}</p>
                 <button type="submit" name="urmom" value="{app_data.data[0]}">{app_data.data[0]}</button>
             </form>
+
+            <a href="{url_for('test')}">to the first page</a>
         """
     else:
         return f"<p>no more data</p>"

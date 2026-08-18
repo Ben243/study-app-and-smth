@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <title>Ur Mom</title>
+</head>
+<body>
+    <div class="w3-container w3-teal">
+        <h1>This is a Header</h1>
+    </div>
+    <div class="w3-container w3-yellow">
+        {% for i in range(0, app_data|length): %}
+            <p>print: {{ i }}</p>
+        {% endfor %}
+    </div>
+    <div class="w3-container">
+        <a href="{{ make_req }}">to the other page</a>
+    </div>
+</body>
+</html>
