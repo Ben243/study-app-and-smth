@@ -39,3 +39,7 @@ def remove_item():
 
     # return f"<p>{value}</p>"
     return redirect(url_for('test_req'))
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)

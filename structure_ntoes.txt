@@ -1,0 +1,37 @@
+Textbook []
+    textbook name
+    textbook path
+    textbook state (done/not yet started/active)
+    Topic []
+        lesson desc
+        topic state (done/not yet started/active)
+        Problems []
+            no.
+            problem state (done/not yet started/needs further review/you are fail/active)
+            
+            question
+            solution
+        Topic Settings []
+            pog
+    Textbook Settings []
+        //config []
+        topic window size?
+            max (all at once)
+            min (1 topic at time)
+            value (move on by x topics)
+
+
+Lesson Plan
+    Session []
+        active topics []
+            list of problems []
+    //frequency settings
+
+features
+    decks
+    daily limits
+
+
+Config
+    problems per day
+
