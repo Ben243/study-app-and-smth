@@ -1,15 +1,9 @@
 from flask import Flask, request, redirect, url_for, render_template
 import os
-import psycopg2
-import app_data
+import app_data, db_utils
 
 app = Flask(__name__)
-DATABASE_URL = os.environ["DATABASE_URL"]
 
-conn = psycopg2.connect(DATABASE_URL)
-cur = conn.cursor()
-cur.close()
-conn.close()
 
 @app.route("/")
 def hello_world():
@@ -47,6 +41,13 @@ def remove_item():
     # return f"<p>{value}</p>"
     return redirect(url_for('test_req'))
 
+
+@app.route("/make_test_problem", methods=['POST'])
+def test_problem():
+    # testing form submission
+    # user_input = request.form.get("user_input")
+
+    return f"<p>test problem sent</p>"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
